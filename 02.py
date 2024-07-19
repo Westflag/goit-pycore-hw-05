@@ -1,7 +1,8 @@
 import re
 
 def generator_numbers(text):
-    return map(lambda x:float(x),re.findall(r"\b\d+\.\d+\b", text))
+     for number in re.finditer(r"\b\d+\.\d+\b", text):
+        yield float(number.group())
 
 def sum_profit(text, func):
     numbers = func(text)
